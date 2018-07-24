@@ -1,0 +1,22 @@
+version: "0.1"
+
+# 同时启动两个docker镜像：MySQL与Java
+services:
+  mysql:
+    image: handmysql:test
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+  java:
+    image: javajar:test
+    environment:
+      IP: "192.168.99.100"
+      PORT: "3306"
+      DBNAME: "sakila"
+      USERNAME: "root"
+      PASSWORD: "123456"
+      # 第一题ID
+      country_id: "2"
+      # 第二题ID
+      customer_id: "2"
